@@ -32,7 +32,8 @@ import com.alex.treenode.utils.TreeNodeUtils;
  * 4
  * 3
  * 2
- *
+ * 树的深度
+ * 树的深度为 = 4
  */
 
 
@@ -58,6 +59,12 @@ public class DynamicTest {
 
         System.out.println("后序遍历");
         TreeNodeUtils.postTraverseTree(root.getTreeNode());
+
+        System.out.println("树的深度");
+        System.out.println("树的深度为 = " + TreeNodeUtils.getHeight(root.getTreeNode()));
+
+        System.out.println("树的最大值");
+        System.out.println("树的最大值 = " + TreeNodeUtils.getMax(root.getTreeNode()));
     }
 
 

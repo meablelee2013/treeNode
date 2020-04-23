@@ -89,6 +89,56 @@ public class TreeNodeUtils {
                 }
             }
         }
+    }
 
+    /**
+     * 找出树的深度
+     *
+     * @param treeNode
+     * @return
+     */
+
+    public static int getHeight(TreeNode treeNode) {
+        if (treeNode == null) {
+            return 0;
+        } else {
+            int leftHeight = getHeight(treeNode.getLeftNode());
+            int rightHeight = getHeight(treeNode.getRightNode());
+            int max = leftHeight;
+            if (rightHeight > max) {
+                max = rightHeight;
+            }
+            return max + 1;
+        }
+    }
+
+    /**
+     * 找出树的最大值
+     *
+     * @param treeNode
+     * @return
+     */
+
+    public static int getMax(TreeNode treeNode) {
+        if (treeNode == null) {
+            return -1;
+        } else {
+
+            int left = getMax(treeNode.getLeftNode());
+
+            int right = getMax(treeNode.getRightNode());
+
+            int currentRootValue = treeNode.getValue();
+
+            int max = left;
+
+            if (right > max) {
+                max = right;
+            }
+            if (currentRootValue > max) {
+                max = currentRootValue;
+            }
+            return max;
+        }
     }
 }
