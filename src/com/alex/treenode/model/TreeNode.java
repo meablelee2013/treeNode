@@ -1,4 +1,4 @@
-package com.alex.treenode;
+package com.alex.treenode.model;
 
 public class TreeNode {
 
