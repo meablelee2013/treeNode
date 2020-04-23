@@ -1,7 +1,6 @@
 package com.alex.treenode.utils;
 
 import com.alex.treenode.model.TreeNode;
-import com.alex.treenode.model.TreeRoot;
 
 public class TreeNodeUtils {
 
@@ -53,42 +52,33 @@ public class TreeNodeUtils {
         }
     }
 
+    public static TreeNode createTreeNode(int[] values) {
+        TreeNode treeNode = null;
+        for (int value : values) {
+            treeNode = createTree(treeNode, value);
+        }
+        return treeNode;
+    }
+
     /**
      * 动态创建二叉查找树
      *
-     * @param treeRoot
      * @param value
      */
 
-    public static void createTree(TreeRoot treeRoot, int value) {
+    private static TreeNode createTree(TreeNode treeNode, int value) {
 
-        if (treeRoot == null) return;
-        if (treeRoot.getTreeNode() == null) {
-            TreeNode treeNode = new TreeNode(value);
-            treeRoot.setTreeNode(treeNode);
+        if (treeNode == null) {
+            treeNode = new TreeNode(value);
+            treeNode.setValue(value);
         } else {
-            TreeNode tempRoot = treeRoot.getTreeNode();
-            while (tempRoot != null) {
-                //当前值大于根值，往右边走
-                if (value > tempRoot.getValue()) {
-                    //右边没有树根，那就直接插入
-                    if (tempRoot.getRightNode() == null) {
-                        tempRoot.setRightNode(new TreeNode(value));
-                        return;
-                    } else {
-                        //如果右边有树根，到右边的树根去
-                        tempRoot = tempRoot.getRightNode();
-                    }
-                } else {//左没有树根，那就直接插入
-                    if (tempRoot.getLeftNode() == null) {
-                        tempRoot.setLeftNode(new TreeNode(value));
-                        return;
-                    } else {
-                        tempRoot = tempRoot.getLeftNode();
-                    }
-                }
+            if (value <= treeNode.getValue()) {
+                treeNode.setLeftNode(createTree(treeNode.getLeftNode(), value));
+            } else {
+                treeNode.setRightNode(createTree(treeNode.getRightNode(), value));
             }
         }
+        return treeNode;
     }
 
     /**

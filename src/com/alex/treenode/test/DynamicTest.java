@@ -1,7 +1,7 @@
 package com.alex.treenode.test;
 
 
-import com.alex.treenode.model.TreeRoot;
+import com.alex.treenode.model.TreeNode;
 import com.alex.treenode.utils.TreeNodeUtils;
 
 /**
@@ -44,27 +44,24 @@ public class DynamicTest {
 
         int[] arrays = {2, 3, 1, 4, 5};
 
-        TreeRoot root = new TreeRoot();
         //动态创建二叉查找树
-        for (int value : arrays) {
-            TreeNodeUtils.createTree(root, value);
-        }
+        TreeNode root = TreeNodeUtils.createTreeNode(arrays);
 
         //先序遍历
         System.out.println("先序遍历");
-        TreeNodeUtils.preTraverseTree(root.getTreeNode());
+        TreeNodeUtils.preTraverseTree(root);
 
         System.out.println("中序遍历");
-        TreeNodeUtils.inTraverseTree(root.getTreeNode());
+        TreeNodeUtils.inTraverseTree(root);
 
         System.out.println("后序遍历");
-        TreeNodeUtils.postTraverseTree(root.getTreeNode());
+        TreeNodeUtils.postTraverseTree(root);
 
         System.out.println("树的深度");
-        System.out.println("树的深度为 = " + TreeNodeUtils.getHeight(root.getTreeNode()));
+        System.out.println("树的深度为 = " + TreeNodeUtils.getHeight(root));
 
         System.out.println("树的最大值");
-        System.out.println("树的最大值 = " + TreeNodeUtils.getMax(root.getTreeNode()));
+        System.out.println("树的最大值 = " + TreeNodeUtils.getMax(root));
     }
 
 
