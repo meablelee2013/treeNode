@@ -89,17 +89,9 @@ public class TreeNodeUtils {
      */
 
     public static int getHeight(TreeNode treeNode) {
-        if (treeNode == null) {
-            return 0;
-        } else {
-            int leftHeight = getHeight(treeNode.getLeftNode());
-            int rightHeight = getHeight(treeNode.getRightNode());
-            int max = leftHeight;
-            if (rightHeight > max) {
-                max = rightHeight;
-            }
-            return max + 1;
-        }
+        return treeNode == null ? 0 :
+                (1 + Math.max(getHeight(treeNode.getLeftNode()), getHeight(treeNode.getRightNode())));
+
     }
 
     /**
@@ -113,22 +105,28 @@ public class TreeNodeUtils {
         if (treeNode == null) {
             return -1;
         } else {
-
             int left = getMax(treeNode.getLeftNode());
-
             int right = getMax(treeNode.getRightNode());
-
-            int currentRootValue = treeNode.getValue();
-
-            int max = left;
-
-            if (right > max) {
-                max = right;
-            }
-            if (currentRootValue > max) {
-                max = currentRootValue;
-            }
-            return max;
+            return Math.max(Math.max(left, right), treeNode.getValue());
         }
+    }
+
+    /**
+     * 左右翻转
+     * <p>
+     * 将左节点赋值给右节点，将右节点赋值给左节点
+     *
+     * @param treeNode
+     */
+    public static void invert(TreeNode treeNode) {
+        if (treeNode == null) {
+            return;
+        }
+        TreeNode temp = treeNode.getLeftNode();
+        treeNode.setLeftNode(treeNode.getRightNode());
+        treeNode.setRightNode(temp);
+
+        invert(treeNode.getLeftNode());
+        invert(treeNode.getRightNode());
     }
 }

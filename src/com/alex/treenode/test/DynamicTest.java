@@ -57,11 +57,16 @@ public class DynamicTest {
         System.out.println("后序遍历");
         TreeNodeUtils.postTraverseTree(root);
 
-        System.out.println("树的深度");
         System.out.println("树的深度为 = " + TreeNodeUtils.getHeight(root));
 
-        System.out.println("树的最大值");
         System.out.println("树的最大值 = " + TreeNodeUtils.getMax(root));
+
+        System.out.println("左右翻转");
+        TreeNodeUtils.invert(root);
+
+        System.out.println("翻转之后先序遍历");
+        TreeNodeUtils.preTraverseTree(root);
+
     }
 
 
