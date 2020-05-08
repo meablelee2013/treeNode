@@ -4,8 +4,17 @@ import com.alex.treenode.model.TreeNode;
 import com.alex.treenode.utils.TreeNodeUtils;
 
 public class Test {
+    private static final int MODE_SHIFT = 30;
 
     public static void main(String[] args) {
+//        int i0 = 0 << MODE_SHIFT;
+//        System.out.println("i0 = " + i0);
+//        int i1 = 1 << MODE_SHIFT;
+//        System.out.println("i1 = " + i1);
+//        int i2 = 2 << MODE_SHIFT;
+//        System.out.println("i2 = " + i2);
+//
+//        System.out.println("0x3==3 = " + (0x3 == 3));
         TreeNode rootTreeNode = initTree();
         System.out.println("前序遍历");
         TreeNodeUtils.preTraverseTree(rootTreeNode);
@@ -29,5 +38,7 @@ public class Test {
         treeNode3.setRightNode(treeNode5);
         return rootTreeNode;
     }
+
+
 
 }

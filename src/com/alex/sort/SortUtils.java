@@ -45,6 +45,15 @@ public class SortUtils {
         }
     }
 
+    /**
+     * 快速排序
+     *
+     * @param attr
+     * @param low
+     * @param high
+     * @return
+     */
+
     public static int getIndex(int[] attr, int low, int high) {
         // 基准数据
         int temp = attr[low];

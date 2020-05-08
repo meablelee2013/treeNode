@@ -92,4 +92,17 @@ public class NodeUtils<E> {
         return slow;
     }
 
+    public boolean hasCycle(LinkedNode head) {
+        LinkedNode fast = head;
+        LinkedNode slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
